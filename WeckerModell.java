@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.util.Scanner;
 
+//Ich bin ein einfacher Timer.
 public class WeckerModell extends JFrame
 implements ActionListener
 {
