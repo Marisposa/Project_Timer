@@ -4,16 +4,16 @@ import java.awt.*;
 import javax.swing.*;
 import java.util.Scanner;
 
-//Ich bin ein einfacher Timer.
+//This is a simple timer.
 public class WeckerModell extends JFrame
 implements ActionListener
 {
 	private JLabel labeltimer1;
 	private JLabel labeltimer2;
-	private JLabel labelAusgabe;
+	private JLabel labelOutput;
 	private JButton button;
-	private JTextField textfeld1;
-	private JTextField textfeld2;
+	private JTextField textfield1;
+	private JTextField textfield2;
 	private Container contentPane;
 	public WeckerModell()
 	{
@@ -26,21 +26,21 @@ implements ActionListener
 		labeltimer1 = new JLabel ("Erste Timerzeit:");
 		labeltimer1.setPreferredSize(new Dimension(100,26));
 		panel.add(labeltimer1);
-		textfeld1 = new JTextField ();
-		textfeld1.setPreferredSize(new Dimension(100,26));
-		panel.add(textfeld1);
+		textfield1 = new JTextField ();
+		textfield1.setPreferredSize(new Dimension(100,26));
+		panel.add(textfield1);
 		labeltimer2 = new JLabel ("Zweite Timerzeit:");
 		panel.add(labeltimer2);
-		textfeld2 = new JTextField();
-		textfeld2.setPreferredSize(new Dimension(100,26));
-		panel.add(textfeld2);
+		textfield2 = new JTextField();
+		textfield2.setPreferredSize(new Dimension(100,26));
+		panel.add(textfield2);
 		button = new JButton ("Start");
 		button.addActionListener(this);
 		panel.add(button);
-		labelAusgabe = new JLabel ("", SwingConstants.CENTER);
-		labelAusgabe.setPreferredSize(new Dimension(100,26));
-		labelAusgabe.setBorder(BorderFactory.createLoweredBevelBorder());
-		panel.add(labelAusgabe);
+		labelOutput = new JLabel ("", SwingConstants.CENTER);
+		labelOutput.setPreferredSize(new Dimension(100,26));
+		labelOutput.setBorder(BorderFactory.createLoweredBevelBorder());
+		panel.add(labelOutput);
 		contentPane.add(BorderLayout.CENTER, panel);
 		pack();
 		setVisible(true);
@@ -49,30 +49,30 @@ implements ActionListener
 	{
 		if (evt.getSource().equals(button))
 		{
-			float zaehler1 = 0;
-			float zaehler2 = 0;
-			int timerzeit1;
-			int timerzeit2;
+			float counter1 = 0;
+			float counter2 = 0;
+			int timerTime1;
+			int timerTime2;
 			try
 			{
-			zaehler1 = Float.parseFloat(textfeld1.getText().replace(',' , '.'));
-			zaehler2 = Float.parseFloat(textfeld2.getText().replace(',' , '.'));
+			counter1 = Float.parseFloat(textfield1.getText().replace(',' , '.'));
+			counter2 = Float.parseFloat(textfield2.getText().replace(',' , '.'));
 			
 			}
 			catch (NumberFormatException e)
 			{
-				labelAusgabe.setText("Bitte eine Zahl eingeben.");
+				labelOutput.setText("Bitte eine Zahl eingeben.");
 			}
-			timerzeit1 = (int)(zaehler1 * 60 * 1000);
-			Timer timer = new Timer(timerzeit1, this);
+			timerTime1 = (int)(counter1 * 60 * 1000);
+			Timer timer = new Timer(timerTime1, this);
 			timer.setRepeats(false);
 			timer.start();
 		}
 		else
 		{
-			String zaehler1 = textfeld1.getText();
-			String zaheler2 = textfeld2.getText();
-			labelAusgabe.setText(zaehler1 + " min abgelaufen");
+			String counter1 = textfield1.getText();
+			String counter2 = textfield2.getText();
+			labelOutput.setText(counter1 + " min abgelaufen");
 		} 
 	};
 	public static void main(String [] args)
